@@ -22,8 +22,15 @@ body{
   overflow-x:hidden;
 }
 
-.container{ width:100%; max-width:var(--container); margin-inline:auto; padding-inline:24px; }
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-left: calc(clamp(24px, 7vw, 40px) + env(safe-area-inset-left, 0px));
+  padding-right: calc(clamp(24px, 7vw, 40px) + env(safe-area-inset-right, 0px));
+}
 
+/* Restore background red grid */
 #bg-grid{
   position:fixed; inset:0; z-index:-1;
   background:
@@ -33,6 +40,7 @@ body{
   transform: translate3d(var(--grid-x,0),var(--grid-y,0),0) scale(var(--grid-s,1));
   filter: saturate(120%);
   mask-image: radial-gradient(1200px 800px at 50% 25%, #000 55%, transparent 95%);
+  -webkit-mask-image: radial-gradient(1200px 800px at 50% 25%, #000 55%, transparent 95%); /* Safari */
   pointer-events:none;
   transition: transform .6s var(--ease);
 }
@@ -158,3 +166,130 @@ body{
   #bg-grid{ transition:none; }
   .card, .btn{ transition:none; }
 }
+
+  /* Leggibilità sezione About */
+    #about .section__desc{ color:#f2f2f2; opacity:1; font-size:1.05rem; line-height:1.7; }
+    #about .about__text{
+      background: linear-gradient(180deg,#0f0f11,#0b0b0c);
+      border:1px solid rgba(255,43,43,.28);
+      border-radius:14px; padding:20px;
+      color:#fafafa; font-size:1.05rem; line-height:1.8;
+    }
+    #about .about__sub{ margin:14px 0 6px; color:#fff; font-weight:700; letter-spacing:.2px; }
+    #about .about__list{ margin:8px 0 0; padding-left:1.2rem; list-style:disc; }
+    #about .about__list li{ margin:8px 0; color:#f5f5f5; }
+    #about .about__list li::marker{ color: var(--red); }
+    #about .about__insta{
+      background: linear-gradient(180deg,#0f0f11,#0b0b0c);
+      border:1px solid rgba(255,43,43,.28);
+      border-radius:14px; padding:16px;
+      color:#fafafa;
+    }
+    #about .about__insta .insta__head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;
+    }
+    #about .about__insta .insta__title{ margin:0; font-weight:700; }
+    #about .about__insta .insta__btn{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
+      border:1px solid rgba(255,43,43,.35); border-radius:10px; color:#fff; text-decoration:none;
+    }
+    #about .about__insta .insta__note{ display:block; margin-top:8px; color:#d6d6d6; font-size:.85rem; opacity:.9; }
+    #about .about__punchline{
+      margin:8px 0 0;
+      font-weight:700;
+      letter-spacing:.2px;
+      color:#fafafa;
+      border-left:3px solid var(--red);
+      padding-left:12px;
+    }
+
+    /* Punchline Hero */
+    .hero__punchline{
+      margin:6px 0 16px;
+      font-weight:700;
+      letter-spacing:.2px;
+      color:var(--fg);
+      border-left:3px solid var(--red);
+      padding-left:12px;
+    }
+
+    /* Fallback: se JS non è attivo, mostra subito gli elementi con data-animate */
+    html:not(.js) [data-animate] { opacity: 1 !important; transform: none !important; }
+
+    /* About: colonne a uguale altezza */
+    #about .about__grid{
+      display:grid; grid-template-columns: 1fr 1fr; gap:24px; align-items:stretch;
+    }
+    @media (max-width: 900px){
+      #about .about__grid{ grid-template-columns:1fr; }
+    }
+    #about .about__text,
+    #about .about__insta{
+      display:flex; flex-direction:column; height:100%;
+    }
+    #about .about__insta .embed-box{
+      flex:1; display:grid; place-items:center; overflow:hidden;
+      background:#0b0b0c; border-radius:10px;
+      min-height:360px;
+    }
+    /* Profile fallback styling */
+    #about .about__insta .insta__profile{
+      height:100%; width:100%; display:grid; place-items:center; gap:10px; text-align:center;
+      color:#fafafa; padding:16px;
+    }
+    #about .about__insta .insta__avatar{
+      width:72px; height:72px; border-radius:50%;
+      background: radial-gradient(120% 120% at 30% 20%, rgba(255,43,43,.35), rgba(255,43,43,.12) 60%, rgba(255,43,43,.06));
+      border:1px solid rgba(255,43,43,.35); display:grid; place-items:center; font-weight:800;
+    }
+    #about .about__insta .insta__cta{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px;
+      color:#fff; text-decoration:none; border:1px solid rgba(255,43,43,.4);
+    }
+
+    /* Controlli incorporamento Instagram */
+    #about .about__insta .insta__controls{
+      display:grid; grid-template-columns: 1fr auto; gap:8px; margin:8px 0 12px;
+    }
+    #about .about__insta .insta__controls input{
+      background:#121214; border:1px solid rgba(255,43,43,.35); border-radius:10px;
+      padding:10px 12px; color:#fff;
+    }
+    #about .about__insta .insta__controls button{
+      background:linear-gradient(180deg, rgba(255,43,43,.18), rgba(255,43,43,.08));
+      border:1px solid rgba(255,43,43,.5); border-radius:10px; color:#fff; padding:10px 14px; font-weight:600;
+      cursor:pointer;
+    }
+    #about .about__insta .insta__controls input.error{ border-color:#ff6666; }
+
+    /* Make images fluid */
+    img{ max-width:100%; height:auto; display:block; }
+
+    /* Smartphone adjustments */
+    @media (max-width: 600px){
+      /* Hide scrollbars but keep scrolling */
+      html, body{ -ms-overflow-style: none; scrollbar-width: none; }
+      html::-webkit-scrollbar, body::-webkit-scrollbar{ width:0; height:0; display:none; }
+
+      /* Compact hero spacing and allow CTA wrap */
+      .hero{ padding:88px 0 28px; }
+      .hero__cta{ flex-wrap:wrap; gap:10px; }
+
+      /* Tighter sections and grid spacing */
+      .section{ padding:56px 0; }
+      .section__head{ margin-bottom:22px; }
+      .grid{ gap:16px; }
+      .card__media{ height:150px; }
+
+      /* Footer spacing */
+      .footer{ padding:18px 0 48px; }
+      .nav__inner{ padding:12px 0; }
+    }
+
+    /* Extra-small phones: keep generous side spacing */
+    @media (max-width: 400px){
+      .container{
+        padding-left: calc(clamp(24px, 8vw, 32px) + env(safe-area-inset-left, 0px));
+        padding-right: calc(clamp(24px, 8vw, 32px) + env(safe-area-inset-right, 0px));
+      }
+    }

@@ -141,3 +141,10 @@
   window.addEventListener('scroll', setActive, { passive:true });
   setActive();
 })();
+
+// Assicurati che gli embed vengano processati quando la pagina è pronta (se embed.js è caricato)
+window.addEventListener('load', () => {
+  if (window.instgrm && window.instgrm.Embeds) {
+    window.instgrm.Embeds.process();
+  }
+});
