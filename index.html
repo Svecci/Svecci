@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <title>Portfolio — Stefano Vacca</title>
+  <meta name="description" content="Portfolio moderno, dinamico e fluido. Base nera con righe rosse, animazioni pulite e dirette." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script>
+    // Marca HTML come "js" per controllare la visibilità degli elementi animati
+    document.documentElement.classList.add('js');
+  </script>
+  <style>
+    /* Leggibilità sezione About */
+    #about .section__desc{ color:#f2f2f2; opacity:1; font-size:1.05rem; line-height:1.7; }
+    #about .about__text{
+      background: linear-gradient(180deg,#0f0f11,#0b0b0c);
+      border:1px solid rgba(255,43,43,.28);
+      border-radius:14px; padding:20px;
+      color:#fafafa; font-size:1.05rem; line-height:1.8;
+    }
+    #about .about__sub{ margin:14px 0 6px; color:#fff; font-weight:700; letter-spacing:.2px; }
+    #about .about__list{ margin:8px 0 0; padding-left:1.2rem; list-style:disc; }
+    #about .about__list li{ margin:8px 0; color:#f5f5f5; }
+    #about .about__list li::marker{ color: var(--red); }
+    #about .about__insta{
+      background: linear-gradient(180deg,#0f0f11,#0b0b0c);
+      border:1px solid rgba(255,43,43,.28);
+      border-radius:14px; padding:16px;
+      color:#fafafa;
+    }
+    #about .about__insta .insta__head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;
+    }
+    #about .about__insta .insta__title{ margin:0; font-weight:700; }
+    #about .about__insta .insta__btn{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
+      border:1px solid rgba(255,43,43,.35); border-radius:10px; color:#fff; text-decoration:none;
+    }
+    #about .about__insta .insta__note{ display:block; margin-top:8px; color:#d6d6d6; font-size:.85rem; opacity:.9; }
+    #about .about__punchline{
+      margin:8px 0 0;
+      font-weight:700;
+      letter-spacing:.2px;
+      color:#fafafa;
+      border-left:3px solid var(--red);
+      padding-left:12px;
+    }
+
+    /* Punchline Hero */
+    .hero__punchline{
+      margin:6px 0 16px;
+      font-weight:700;
+      letter-spacing:.2px;
+      color:var(--fg);
+      border-left:3px solid var(--red);
+      padding-left:12px;
+    }
+
+    /* Fallback: se JS non è attivo, mostra subito gli elementi con data-animate */
+    html:not(.js) [data-animate] { opacity: 1 !important; transform: none !important; }
+
+    /* About: colonne a uguale altezza */
+    #about .about__grid{
+      display:grid; grid-template-columns: 1fr 1fr; gap:24px; align-items:stretch;
+    }
+    @media (max-width: 900px){
+      #about .about__grid{ grid-template-columns:1fr; }
+    }
+    #about .about__text,
+    #about .about__insta{
+      display:flex; flex-direction:column; height:100%;
+    }
+    #about .about__insta .embed-box{
+      flex:1; display:grid; place-items:center; overflow:hidden;
+      background:#0b0b0c; border-radius:10px;
+      min-height:360px;
+    }
+    /* Profile fallback styling */
+    #about .about__insta .insta__profile{
+      height:100%; width:100%; display:grid; place-items:center; gap:10px; text-align:center;
+      color:#fafafa; padding:16px;
+    }
+    #about .about__insta .insta__avatar{
+      width:72px; height:72px; border-radius:50%;
+      background: radial-gradient(120% 120% at 30% 20%, rgba(255,43,43,.35), rgba(255,43,43,.12) 60%, rgba(255,43,43,.06));
+      border:1px solid rgba(255,43,43,.35); display:grid; place-items:center; font-weight:800;
+    }
+    #about .about__insta .insta__cta{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px;
+      color:#fff; text-decoration:none; border:1px solid rgba(255,43,43,.4);
+    }
+
+    /* Controlli incorporamento Instagram */
+    #about .about__insta .insta__controls{
+      display:grid; grid-template-columns: 1fr auto; gap:8px; margin:8px 0 12px;
+    }
+    #about .about__insta .insta__controls input{
+      background:#121214; border:1px solid rgba(255,43,43,.35); border-radius:10px;
+      padding:10px 12px; color:#fff;
+    }
+    #about .about__insta .insta__controls button{
+      background:linear-gradient(180deg, rgba(255,43,43,.18), rgba(255,43,43,.08));
+      border:1px solid rgba(255,43,43,.5); border-radius:10px; color:#fff; padding:10px 14px; font-weight:600;
+      cursor:pointer;
+    }
+    #about .about__insta .insta__controls input.error{ border-color:#ff6666; }
+  </style>
+</head>
+<body>
+  <!-- Background red grid -->
+  <div id="bg-grid" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" data-nav>
+    <div class="nav__inner container">
+      <a href="#home" class="brand" aria-label="Vai alla Home">
+        <span class="brand__mark">SV</span><span class="brand__text">Stefano Vacca @Svecci</span>
+      </a>
+      <nav class="nav__links" aria-label="Navigazione principale">
+        <a href="#work">Lavori</a>
+        <a href="#about">Chi sono</a>
+        <a href="#contact" class="btn btn--ghost">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="hero container">
+    <div class="hero__content">
+      <h1 class="hero__title" data-animate="hero">
+        <span class="title__top">Designer & Developer</span>
+        <span class="title__main">Fotografia che lascia il segno</span>
+      </h1>
+      <p class="hero__subtitle" data-animate="fade">
+        Fotografia essenziale, fluida e curata nei dettagli.
+      </p>
+      <p class="hero__punchline" data-animate="fade">Ogni scatto, una storia.</p>
+      <div class="hero__cta" data-animate="fade">
+        <a class="btn btn--primary" href="#work">Vedi i lavori</a>
+        <a class="btn btn--primary" href="#contact">Parliamone</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Work -->
+  <section id="work" class="section container">
+    <div class="section__head">
+      <h2 class="section__title" data-animate="line">Lavori selezionati</h2>
+      <p class="section__desc" data-animate="fade">Selezione di progetti con focus su performance e interazione.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card" data-animate="card">
+        <div class="card__media" role="img" aria-label="Anteprima Progetto 1"></div>
+        <div class="card__body">
+          <h3 class="card__title">Progetto One</h3>
+          <p class="card__text">Landing ad alta conversione con animazioni fluide e micro-interazioni.</p>
+          <div class="card__meta">
+            <span>UX • UI • Dev</span>
+            <a class="link" href="#" aria-label="Apri Progetto One">Apri</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-animate="card">
+        <div class="card__media" role="img" aria-label="Anteprima Progetto 2"></div>
+        <div class="card__body">
+          <h3 class="card__title">Progetto Two</h3>
+          <p class="card__text">Dashboard reattiva con transizioni dirette e gerarchia visiva netta.</p>
+          <div class="card__meta">
+            <span>Design System</span>
+            <a class="link" href="#" aria-label="Apri Progetto Two">Apri</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-animate="card">
+        <div class="card__media" role="img" aria-label="Anteprima Progetto 3"></div>
+        <div class="card__body">
+          <h3 class="card__title">Progetto Three</h3>
+          <p class="card__text">Sito istituzionale con motion sobrio e focus sulla leggibilità.</p>
+          <div class="card__meta">
+            <span>Brand • Web</span>
+            <a class="link" href="#" aria-label="Apri Progetto Three">Apri</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section> <!-- fine sezione Work -->
+
+  <!-- About -->
+  <section id="about" class="section container">
+    <div class="section__head">
+      <h2 class="section__title" data-animate="line">Chi sono</h2>
+      <p></p>
+      <p class="about__punchline" data-animate="fade">Racconto il movimento in un fotogramma.</p>
+    </div>
+
+    <div class="about__grid">
+      <div class="about__text" data-animate="rise">
+        <p>Classe 1996, sono un fotografo di Eventi, Sport, Motorsport e Ritrattistica, vivo a Genova.</p>
+        <p>Ho iniziato a scattare foto nel 2021 e da quel giorno ho sempre cercato di migliorare siccome mi reputo una persona molto curiosa.</p>
+        <h3 class="about__sub">5 cose su di me:</h3>
+        <ul class="about__list">
+          <li>Diplomato come perito informatico, ho dedicato la mia conoscenza dell'informatica alla fotografia cercando di studiare e apprendere ogni dettaglio.</li>
+          <li>Durante il lavoro sono come una trottola se c'è da lavorare non importa nient'altro se non completare l'obiettivo.</li>
+          <li>Sono una persona introversa, che nel lavoro si traduce in un profondo rispetto degli spazi altrui.</li>
+          <li>Cerco sempre di avere la massima cura di tutta la mia attrezzatura per fornire sempre il massimo ed essere pronto a ogni evenienza.</li>
+          <li>Oltre a tutto questo sono un Nerd di tutto ciò che riguarda il mondo dell'elettronica e dell'informatica.</li>
+        </ul>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section section--tight container">
+    <div class="cta" data-animate="hero">
+      <h2 class="cta__title">Hai un progetto?</h2>
+      <p class="cta__desc">Scrivimi due righe: rispondo entro 24h.</p>
+      <a class="btn btn--primary" href="mailto:vacca.stefano.vs@outlook.it">vacca.stefano.vs@outlook.it</a>
+    </div>
+  </section>
+
+  <footer class="footer container">
+    <div class="footer__left">
+      <span>© <span id="year"></span> — Tutti i diritti riservati</span>
+    </div>
+    <div class="footer__right">
+      <a href="#" class="link">LinkedIn</a>
+      <a href="#" class="link">GitHub</a>
+      <a href="#" class="link">Dribbble</a>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>
