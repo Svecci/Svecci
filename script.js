@@ -62,15 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
       './Immagini/Sport/Mugello-61-min.jpg'
     ],
     panoramiche: [
-      './Immagini/Panoramiche/_SVS0228-HDR-min.jpg',
-      './Immagini/Panoramiche/_SVS0237-min.jpg',
-      './Immagini/Panoramiche/_SVS3971-min.jpg',
-      './Immagini/Panoramiche/_SVS6207-HDR-2-min.jpg',
-      './Immagini/Panoramiche/_SVS7936-HDR-min.jpg',
-      './Immagini/Panoramiche/_SVS8047-HDR-min.jpg',
-      './Immagini/Panoramiche/_SVS8055-min.jpg',
-      './Immagini/Panoramiche/_SVS9076-min.jpg',
-      './Immagini/Panoramiche/_SVS9867-HDR-min.jpg'
+      './Immagini/Panoramiche/SVS0228-HDR-min.jpg',
+      './Immagini/Panoramiche/SVS0237-min.jpg',
+      './Immagini/Panoramiche/SVS3971-min.jpg',
+      './Immagini/Panoramiche/SVS6207-HDR-2-min.jpg',
+      './Immagini/Panoramiche/SVS7936-HDR-min.jpg',
+      './Immagini/Panoramiche/SVS8047-HDR-min.jpg',
+      './Immagini/Panoramiche/SVS8055-min.jpg',
+      './Immagini/Panoramiche/SVS9076-min.jpg',
+      './Immagini/Panoramiche/SVS9867-HDR-min.jpg'
     ]
   };
 
