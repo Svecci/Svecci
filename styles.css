@@ -216,6 +216,16 @@ h1,h2,h3{
   box-orient:vertical;
 }
 
+/* Portfolio: mostra più righe per la descrizione delle card specifiche */
+.photo-card[data-gallery="sport"] p{
+  line-clamp: 6;
+  -webkit-line-clamp: 6;
+}
+.photo-card[data-gallery="panoramiche"] p{
+  line-clamp: 6;
+  -webkit-line-clamp: 6;
+}
+
 /* About: profile image styling */
 .about__profile-wrap{
   display:flex;
