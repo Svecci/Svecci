@@ -1,174 +1,169 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0c" />
-  <title>Portfolio — Stefano Vacca</title>
-  <meta name="description" content="Portfolio moderno, dinamico e fluido. Base nera con righe rosse, animazioni pulite e dirette." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
-
+  <meta charset="utf-8">
+  <title>Portfolio Fotografia — Svecci</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Portfolio fotografico professionale di eventi, sport e ritratti.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-
-
-  <!-- Navigation -->
-  <header class="nav" data-nav>
-    <div class="nav__inner container">
-      <a href="#home" class="brand" aria-label="Vai alla Home">
-        <span class="brand__mark">SV</span><span class="brand__text">Stefano Vacca @Svecci</span>
-      </a>
-      <nav class="nav__links" aria-label="Navigazione principale">
-        <a href="#work">Lavori</a>
-        <a href="#about">Chi sono</a>
-        <a href="#contact" class="btn btn--ghost">Contatti</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <main id="home" class="hero container">
-    <div class="hero__content">
-      <h1 class="hero__title" data-animate="hero">
-        <span class="title__top">Designer & Developer</span>
-        <span class="title__main">Fotografia che lascia il segno</span>
-      </h1>
-      <p class="hero__subtitle" data-animate="fade">
-        Fotografia essenziale, fluida e curata nei dettagli
-      </p>
-      
-      <div class="hero__cta" data-animate="fade">
-        <a class="btn btn--primary" href="#work">Vedi i lavori</a>
-        <a class="btn btn--primary" href="#contact">Parliamone</a>
-      </div>
-    </div>
-  </main>
-
-  <!-- Banner immagine tra CTA e Lavori -->
-  <div class="container" aria-label="Anteprima fotografica">
-
-   
-    <figure class="hero-banner" style="margin:20px 0 32px;">
-      <img src="./Immagini/Sfondi/Sfondo1.jpg" alt="Anteprima del portfolio fotografico" style="width:100%; height:auto; display:block; border-radius:16px; object-fit:cover;">
-    </figure>
-    <p class="hero__punchline" data-animate="fade">Genova al tramonto con il caligo</p>
-  </div>
-
-  <!-- Work -->
-  <section id="work" class="section container">
-    <div class="section__head">
-      <h2 class="section__title" data-animate="line">Lavori selezionati</h2>
-      <p class="section__desc" data-animate="fade">Selezione di progetti con focus su performance e interazione.</p>
-    </div>
-
-    <div class="grid">
-      <article class="card" data-animate="card">
-        <div class="card__media" role="img" aria-label="Anteprima Progetto 1"></div>
-        <div class="card__body">
-          <h3 class="card__title">Progetto One</h3>
-          <p class="card__text">Landing ad alta conversione con animazioni fluide e micro-interazioni.</p>
-          <div class="card__meta">
-            <span>UX • UI • Dev</span>
-            <a class="link" href="#" aria-label="Apri Progetto One">Apri</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-animate="card">
-        <div class="card__media" role="img" aria-label="Anteprima Progetto 2"></div>
-        <div class="card__body">
-          <h3 class="card__title">Progetto Two</h3>
-          <p class="card__text">Dashboard reattiva con transizioni dirette e gerarchia visiva netta.</p>
-          <div class="card__meta">
-            <span>Design System</span>
-            <a class="link" href="#" aria-label="Apri Progetto Two">Apri</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-animate="card">
-        <div class="card__media" role="img" aria-label="Anteprima Progetto 3"></div>
-        <div class="card__body">
-          <h3 class="card__title">Progetto Three</h3>
-          <p class="card__text">Sito istituzionale con motion sobrio e focus sulla leggibilità.</p>
-          <div class="card__meta">
-            <span>Brand • Web</span>
-            <a class="link" href="#" aria-label="Apri Progetto Three">Apri</a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section> <!-- fine sezione Work -->
-
-  <!-- About -->
-  <section id="about" class="section container">
-    <div class="section__head">
-      <h2 class="section__title" data-animate="line">Chi sono</h2>
-      <p></p>
-      <p class="about__punchline" data-animate="fade">Racconto il movimento in un fotogramma.</p>
-    </div>
-
-    <div class="about__grid">
-      <div class="about__text" data-animate="rise">
-        <p>Classe 1996, sono un fotografo di Eventi, Sport, Motorsport e Ritrattistica, vivo a Genova.</p>
-        <p>Ho iniziato a scattare foto nel 2021 e da quel giorno ho sempre cercato di migliorare siccome mi reputo una persona molto curiosa.</p>
-        <h3 class="about__sub">5 cose su di me:</h3>
-        <ul class="about__list">
-          <li>Diplomato come perito informatico, ho dedicato la mia conoscenza dell'informatica alla fotografia cercando di studiare e apprendere ogni dettaglio.</li>
-          <li>Durante il lavoro sono come una trottola se c'è da lavorare non importa nient'altro se non completare l'obiettivo.</li>
-          <li>Sono una persona introversa, che nel lavoro si traduce in un profondo rispetto degli spazi altrui.</li>
-          <li>Cerco sempre di avere la massima cura di tutta la mia attrezzatura per fornire sempre il massimo ed essere pronto a ogni evenienza.</li>
-          <li>Oltre a tutto questo sono un Nerd di tutto ciò che riguarda il mondo dell'elettronica e dell'informatica.</li>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">Stefano Vacca (Svecci)</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Apri menu">
+        <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Chi sono</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
         </ul>
       </div>
+    </div>
+  </nav>
 
-      <!-- Colonna Instagram con embed ufficiale -->
-      <aside class="about__insta" data-animate="rise">
-        <div class="insta__head">
-          <h3 class="insta__title">Instagram</h3>
-          <a class="insta__btn" href="https://instagram.com/svecci" target="_blank" rel="noopener" aria-label="Apri il profilo Instagram @svecci">
-            Apri profilo
-          </a>
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <img class="hero-bg" src="./Immagini/Sfondi/Sfondo1.jpg" alt="" aria-hidden="true">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold mb-3">Fotografia che lascia il segno</h1>
+      <p class="lead mb-4" style="max-width:720px;margin-inline:auto;">Eventi, Sport e Panoramiche. Catturo movimento, emozione e dettaglio in ogni scatto con un approccio tecnico e pulito.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3 hero__cta">
+        <a href="#portfolio" class="btn btn-accent px-4">Vedi Portfolio</a>
+        <a href="#contatti" class="btn btn-outline-light px-4">Parliamone</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Portfolio Selezionato</h2>
+      <div class="row g-4">
+        <!-- 6 sample photo cards -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="photo-card" data-gallery="evento" role="button" tabindex="0" aria-label="Apri galleria Evento">
+            <img src="./Immagini/Evento/100esimo palio spezia-01-min.jpg" alt="Evento1">
+            <h3>Evento</h3>
+            <p>Azione rapida e intensità catturata in tempo reale.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="photo-card" data-gallery="sport" role="button" tabindex="0" aria-label="Apri galleria Sport">
+            <img src="./Immagini/Sport/Bisonte-01-min.jpg" alt="Sport">
+            <h3>Sport</h3>
+            <p>Velocità, adrenalina e precisione del momento.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="photo-card" data-gallery="panoramiche" role="button" tabindex="0" aria-label="Apri galleria Panoramiche">
+            <img src="./Immagini/Panoramiche/_SVS0228-HDR-min.jpg" alt="Panoramiche">
+            <h3>Panoramiche</h3>
+            <p>Vedute ampie e composizioni bilanciate che raccontano lo spazio.</p>
+          </div>
         </div>
 
-        <div class="embed-box">
-          <!-- Sostituisci REPLACE_WITH_POST_ID con l'ID del post/reel o usa direttamente l'URL completo -->
-          <blockquote
-            class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/svecci"
-            data-instgrm-version="14"
-            style="background:#000000; border:5; margin:5; max-width:100%; min-width:326px; padding:5; width:100%;"
-          >
-            <a href="https://www.instagram.com/svecci"></a>
-          </blockquote>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Chi Sono</h2>
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="about-box">
+            <div class="about__profile-wrap">
+              <img src="./Immagini/Profilo/_JCN6339-min.JPG" alt="Stefano Vacca - Svecci" class="about__profile-img">
+            </div>
+            <p class="mb-3">Sono Stefano (Svecci), fotografo classe 1996 con focus su Eventi, Sport, Motorsport e Ritratti. Unisco rigore tecnico e sensibilità visiva per raccontare movimento ed emozione in un singolo frame.</p>
+            <p class="mb-4">Approccio basato su: tempismo, gestione luce, pulizia post-produzione e attenzione ai dettagli.</p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge-skill">Eventi</span>
+              <span class="badge-skill">Sport</span>
+              <span class="badge-skill">Motorsport</span>
+              <span class="badge-skill">Ritratti</span>
+              <span class="badge-skill">Post-produzione</span>
+              <span class="badge-skill">Color grading</span>
+            </div>
+          </div>
         </div>
-      </aside>
+        <div class="col-lg-5">
+          <div class="about-box">
+            <h3 class="h5 mb-3">Perché scegliere me</h3>
+            <ul class="list-unstyled m-0">
+              <li class="mb-2">• Precisione tecnica costante</li>
+              <li class="mb-2">• Puntualità e affidabilità</li>
+              <li class="mb-2">• Gestione veloce dei flussi</li>
+              <li class="mb-2">• Cura dell’attrezzatura</li>
+              <li class="mb-0">• Mentalità da problem solver</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section id="instagram" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Instagram</h2>
+      <p class="mb-4" style="max-width:640px;">Uno sguardo live alle ultime pubblicazioni su <strong>@svecci</strong>.</p>
+      <div class="about-box insta-frame">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/svecci/?utm_source=ig_embed&utm_campaign=loading"
+          data-instgrm-version="14"
+          style="background:#000; border:0; margin:0 auto; max-width:540px; min-width:326px; width:100%;"
+        >
+          <a href="https://www.instagram.com/svecci/?utm_source=ig_embed&utm_campaign=loading">View on Instagram</a>
+        </blockquote>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section section--tight container">
-    <div class="cta" data-animate="hero">
-      <h2 class="cta__title">Hai un progetto?</h2>
-      <p class="cta__desc">Scrivimi due righe: rispondo entro 24h.</p>
-      <a class="btn btn--primary" href="mailto:vacca.stefano.vs@outlook.it">vacca.stefano.vs@outlook.it</a>
+  <section id="contatti" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Contatti</h2>
+      <div class="contact-box">
+        <p class="mb-3">Per richieste, collaborazioni o progetti scrivimi: </p>
+        <p class="h5 mb-4">
+          <a href="mailto:vacca.stefano.vs@outlook.it" class="link-accent">vacca.stefano.vs@outlook.it</a>
+        </p>
+        <hr class="my-3 opacity-25">
+        <div class="d-flex flex-wrap gap-3 mt-3">
+          <a href="#" class="link-accent">Instagram</a>
+          <a href="#" class="link-accent">LinkedIn</a>
+          <a href="#" class="link-accent">GitHub</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer class="footer container">
-    <div class="footer__left">
-      <span>© <span id="year"></span> — Svecci non e' un marchio ma un logo che identifica le produzioni foto di Stefano Vacca.</span>
-    </div>
-    <div class="footer__right">
-      <a href="#" class="link">LinkedIn</a>
-      <a href="#" class="link">GitHub</a>
-      <a href="#" class="link">Dribbble</a>
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <span>© <span id="year"></span> Svecci non e' un marchio ma un logo che identifica le produzioni foto di Stefano Vacca.</span>
+      <span style="opacity:.65;">Portfolio Fotografico</span>
     </div>
   </footer>
-  <!-- Script di embed Instagram -->
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Galleria fotografica">
+    <button class="lightbox__close" type="button" aria-label="Chiudi galleria">&times;</button>
+    <button class="lightbox__prev" type="button" aria-label="Immagine precedente">‹</button>
+    <button class="lightbox__next" type="button" aria-label="Immagine successiva">›</button>
+    <div class="lightbox__content">
+      <img id="lightbox-img" src="" alt="" aria-live="polite">
+      <div class="lightbox__counter" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script async src="https://www.instagram.com/embed.js"></script>
-  <script src="script.js" defer></script>
+  <script src="./script.js"></script>
 </body>
 </html>
