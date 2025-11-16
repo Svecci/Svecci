@@ -145,4 +145,108 @@ document.addEventListener('DOMContentLoaded', () => {
       else showImage(currentIndex - 1);
     }
   }, { passive: true });
+
+  // Intro: mostra solo la hero finché l'utente non scrolla/clicca
+  document.body.classList.add('intro');
+
+  const exitIntro = () => {
+    if (!document.body.classList.contains('intro')) return;
+    document.body.classList.remove('intro');
+  };
+
+  // Esci dall'intro al primo scroll
+  const onFirstScroll = () => { exitIntro(); window.removeEventListener('scroll', onFirstScroll); };
+  window.addEventListener('scroll', onFirstScroll, { passive:true });
+
+  // Click sull'indicatore: esci dall'intro e scorri al portfolio
+  const indicator = document.querySelector('.scroll-indicator');
+  if (indicator) {
+    indicator.addEventListener('click', (e) => {
+      e.preventDefault();
+      exitIntro();
+      const target = document.querySelector('#portfolio');
+      if (target) target.scrollIntoView({ behavior:'smooth' });
+    });
+  }
+
+  // Scroll indicator visibility based on hero visibility (50%)
+  const hero = document.getElementById('hero');
+  if (hero && indicator && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      const hide = entry.intersectionRatio < 0.5;
+      indicator.classList.toggle('scroll-indicator--hidden', hide);
+    }, { threshold: [0, 0.5, 1] });
+    io.observe(hero);
+  }
+
+  // Update --nav-h with the real navbar height
+  const navEl = document.querySelector('.navbar');
+  const setNavHeightVar = () => {
+    const h = navEl ? navEl.offsetHeight : 0;
+    document.documentElement.style.setProperty('--nav-h', `${h}px`);
+  };
+  setNavHeightVar();
+  window.addEventListener('resize', setNavHeightVar);
+  window.addEventListener('orientationchange', setNavHeightVar);
+
+  // Toggle solid navbar after the hero (when hero < 50% visible)
+  if (hero && navEl && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      const r = entries[0]?.intersectionRatio || 0;
+      const pastHalf = r < 0.5;
+      navEl.classList.toggle('nav--solid', pastHalf);
+
+      // If you also use the scroll indicator, hide it past half hero
+      const indicator = document.querySelector('.scroll-indicator');
+      if (indicator) indicator.classList.toggle('scroll-indicator--hidden', pastHalf);
+    }, { threshold: [0, .5, 1] });
+    io.observe(hero);
+  }
+
+  // Cards reveal: arm only after hero is ~80% scrolled past (hero <= 20% visible)
+  const heroEl = document.getElementById('hero');
+  const cards = document.querySelectorAll('#portfolio .photo-card');
+  let revealsArmed = false;
+
+  function armReveals(){
+    if (revealsArmed || !cards.length) return;
+    revealsArmed = true;
+
+    // prepara stato iniziale + ritardo sfalsato
+    cards.forEach((card, i) => {
+      card.classList.add('reveal');
+      // sfalsamento leggero per colonna/riga
+      const colDelay = (i % 3) * 120;
+      const rowDelay = Math.floor(i / 3) * 60;
+      card.style.setProperty('--reveal-delay', `${colDelay + rowDelay}ms`);
+    });
+
+    // osserva l'entrata in viewport delle card
+    const ioCards = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+
+    cards.forEach(card => ioCards.observe(card));
+  }
+
+  // arma le reveal quando la hero è <= 20% visibile (cioè ~80% superata)
+  if (heroEl && 'IntersectionObserver' in window) {
+    const ioHero = new IntersectionObserver((entries) => {
+      const r = entries[0]?.intersectionRatio ?? 1;
+      if (r <= 0.2) {
+        armReveals();
+        ioHero.disconnect();
+      }
+    }, { threshold: [0, 0.2, 1] });
+    ioHero.observe(heroEl);
+  } else {
+    // fallback
+    armReveals();
+  }
 });
